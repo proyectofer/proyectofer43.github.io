@@ -5,7 +5,7 @@
   <meta name="viewport"
     content="width=device-width,
        initial-scale=1.0">
-  <title>Alumnos</title>
+  <title>Alumno</title>
   <script
     src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js">
     </script>
@@ -23,31 +23,62 @@
   <script type="module"
     src="cmp/mi-footer.js">
     </script>
-  <script type="module"
-    src="cmp/mi-progreso.js">
-    </script>
   <link rel="stylesheet"
     href="css/estilos.css">
 </head>
 <body>
-  <mi-nav></mi-nav>
-  <header>
-    <h1>Alumnos</h1>
-    <div class="herramientas">
-      <a
-        href="alumnoNuevo.html">
-        Agregar…</a>
-    </div>
-  </header>
-  <ul id="lista" class="lista">
-    <li>
-      <mi-progreso>
-      </mi-progreso>
-    </li>
-  </ul>
-  <mi-footer></mi-footer>
+  <form name="forma">
+    <mi-nav></mi-nav>
+    <header>
+      <h1>Alumno</h1>
+      <div class="herramientas">
+        <a href="alumnos.html">
+          Cancelar</a>
+        <button>Guardar</button>
+        <button name="eliminar"
+          type="button">
+          Eliminar
+        </button>
+      </div>
+    </header>
+    <p>
+      <label>
+        Matricula
+        <input name="matricula"
+          type="text" required>
+      </label>
+    </p>
+    <p>
+      <label>
+        Nombre
+        <input name="nombre"
+          type="text" required>
+      </label>
+    </p>
+    <p>
+      <label>
+        Teléfono
+        <input name="telefono"
+          type="text" required>
+      </label>
+    </p>
+    <p>
+      <label>
+        Grupo
+        <input name="grupo"
+          type="text" required>
+      </label>
+    </p>
+    <p>
+      <label>
+        Fecha
+        <input name="fecha" type="date" required>
+      </label>
+    </p>
+    <mi-footer></mi-footer>
+  </form>
   <script type="module"
-    src="js/CtrlAlumnos.js">
+    src="js/CtrlAlumno.js">
     </script>
 </body>
 </html>
