@@ -92,3 +92,75 @@ function errConsulta(e) {
   muestraError(e);
   consulta();
 }
+/** Busca y muestra los datos que
+ * corresponden al id recibido. */
+async function busca() {
+  try {
+    const doc =
+      await daoAlumno.
+        doc(id).
+        get();
+    if (doc.exists) {
+      /**
+       * @type {
+          import("./tipos.js").
+                  Alumno} */
+      const data = doc.data();
+      forma.matricula.value = data.matricula;
+      forma.nombre.value =
+        data.nombre || "";
+      forma.addEventListener(
+        "submit", guarda);
+      forma.eliminar.
+        addEventListener(
+          "click", elimina);
+    } else {
+      throw new Error(
+        "No se encontró.");
+    }
+  } catch (e) {
+    muestraError(e);
+    muestraAlumnos();
+  }
+}
+
+/** @param {Event} evt */
+async function guarda(evt) {
+  try {
+    evt.preventDefault();
+    const formData =
+      new FormData(forma);
+    const matricula = getString(
+        formData, "matricula").trim();  
+    const nombre = getString(
+      formData, "nombre").trim();
+    /**
+     * @type {
+        import("./tipos.js").
+                Alumno} */
+    const modelo = {
+      matricula, 
+      nombre
+    };
+    await daoAlumno.
+      doc(id).
+      set(modelo);
+    muestraAlumnos();
+  } catch (e) {
+    muestraError(e);
+  }
+}
+
+async function elimina() {
+  try {
+    if (confirm("Confirmar la " +
+      "eliminación")) {
+      await daoAlumno.
+        doc(id).
+        delete();
+      muestraAlumnos();
+    }
+  } catch (e) {
+    muestraError(e);
+  }
+}
