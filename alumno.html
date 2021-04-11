@@ -5,7 +5,7 @@
   <meta name="viewport"
     content="width=device-width,
        initial-scale=1.0">
-  <title>Alumno</title>
+  <title>Alumnos</title>
   <script
     src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js">
     </script>
@@ -23,49 +23,31 @@
   <script type="module"
     src="cmp/mi-footer.js">
     </script>
+  <script type="module"
+    src="cmp/mi-progreso.js">
+    </script>
   <link rel="stylesheet"
     href="css/estilos.css">
 </head>
 <body>
-  <form name="forma">
-    <mi-nav></mi-nav>
-    <header>
-      <h1>Alumno</h1>
-      <div class="herramientas">
-        <a href="alumnos.html">
-          Cancelar</a>
-        <button>Guardar</button>
-        <button name="eliminar"
-          type="button">
-          Eliminar
-        </button>
-      </div>
-    </header>
-    <p>
-      <label>
-        Nombre
-        <input name="nombre"
-          type="text" required>
-      </label>
-    </p>
-    <p>
-      <label>
-        Matricula
-        <input name="matricula"
-          type="text" required>
-      </label>
-    </p>
-     <p>
-      <label>
-        Telefono
-        <input name="telefono"
-          type="text" required>
-      </label>
-    </p>
-    <mi-footer></mi-footer>
-  </form>
+  <mi-nav></mi-nav>
+  <header>
+    <h1>Alumnos</h1>
+    <div class="herramientas">
+      <a
+        href="alumnoNuevo.html">
+        Agregar…</a>
+    </div>
+  </header>
+  <ul id="lista" class="lista">
+    <li>
+      <mi-progreso>
+      </mi-progreso>
+    </li>
+  </ul>
+  <mi-footer></mi-footer>
   <script type="module"
-    src="js/CtrlAlumno.js">
+    src="js/CtrlAlumnos.js">
     </script>
 </body>
 </html>
